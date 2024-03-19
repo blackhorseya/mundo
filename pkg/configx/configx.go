@@ -20,11 +20,6 @@ type Config struct {
 		Secret string `json:"secret" yaml:"secret"`
 		Token  string `json:"token" yaml:"token"`
 	} `json:"line_bot" yaml:"lineBot"`
-
-	IRent struct {
-		HTTP    HTTP   `json:"http" yaml:"http"`
-		Version string `json:"version" yaml:"version"`
-	} `json:"irent" yaml:"irent"`
 }
 
 func (x *Config) String() string {
