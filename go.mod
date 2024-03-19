@@ -3,6 +3,8 @@ module github.com/blackhorseya/mundo
 go 1.22.1
 
 require (
+	github.com/aws/aws-lambda-go v1.46.0
+	github.com/awslabs/aws-lambda-go-api-proxy v0.16.1
 	github.com/gin-contrib/zap v1.1.0
 	github.com/gin-gonic/gin v1.9.1
 	github.com/google/wire v0.6.0

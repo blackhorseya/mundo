@@ -1,6 +1,6 @@
 {
   "lockFileVersion": 6,
-  "moduleFileHash": "5f112931194c8a2f5c810793aef871bbd951d4c4ec9476439819a2cf4dd46a2f",
+  "moduleFileHash": "3d859413d0477f57fb2ad2f4b5762b9c840d811ff3d6d2b6701525c0d9edf51b",
   "flags": {
     "cmdRegistries": [
       "https://bcr.bazel.build/"
@@ -34,6 +34,8 @@
             "column": 24
           },
           "imports": {
+            "com_github_aws_aws_lambda_go": "com_github_aws_aws_lambda_go",
+            "com_github_awslabs_aws_lambda_go_api_proxy": "com_github_awslabs_aws_lambda_go_api_proxy",
             "com_github_gin_contrib_zap": "com_github_gin_contrib_zap",
             "com_github_gin_gonic_gin": "com_github_gin_gonic_gin",
             "com_github_google_wire": "com_github_google_wire",
@@ -1968,10 +1970,10 @@
       "general": {
         "bzlTransitiveDigest": "D1+rhhbwX4ufoTmeUVxDpPg+Sknv3QzVXZnyK2zOjj4=",
         "recordedFileInputs": {
-          "@@//go.mod": "7784293032e0e1b81d206ac6477f81fe86783b2b8feb4f418dd5d2d4372ddd91",
+          "@@//go.mod": "885ef52e4acc6f4d03abaf0f04f45962871b3418af2e3c946c94e9ba3ae257cf",
           "@@rules_go~//go.mod": "de22304b720f7f61350ec1c9739de6c0a1b1103fd22bfeb6e92c6c843ddc6d6e",
           "@@gazelle~//go.sum": "7c4460e8ecb5dd8691a51d4fa2e9e4751108b933636497ce46db499fc2e7a88d",
-          "@@//go.sum": "f720c34dbb86f7926d17fe867158430e0b83d9071fac24cbc9f7d690a7770092",
+          "@@//go.sum": "1fcc9520f3e5f9fcd8815f2d0f9e1cf466c173dd53f874b48fd2a7d30f8bbec6",
           "@@rules_go~//go.sum": "d56fdb19b21a5f12bcf625c49432371ac39c2def0f564098fbda107f7c080f40",
           "@@gazelle~//go.mod": "48dc6e771c3028ee1c18b9ffc81e596fd5f6d7e0016c5ef280e30f2821f60473"
         },
@@ -2201,6 +2203,21 @@
               "sum": "h1:TRLaZ9cD/w8PVh93nsPXa1VrQ6jlwL5oN8l14QlcNfg=",
               "replace": "",
               "version": "v0.0.0-20180306012644-bacd9c7ef1dd"
+            }
+          },
+          "com_github_aws_aws_lambda_go": {
+            "bzlFile": "@@gazelle~//internal:go_repository.bzl",
+            "ruleClassName": "go_repository",
+            "attributes": {
+              "importpath": "github.com/aws/aws-lambda-go",
+              "build_directives": [],
+              "build_file_generation": "auto",
+              "build_extra_args": [],
+              "patches": [],
+              "patch_args": [],
+              "sum": "h1:UWVnvh2h2gecOlFhHQfIPQcD8pL/f7pVCutmFl+oXU8=",
+              "replace": "",
+              "version": "v1.46.0"
             }
           },
           "org_golang_google_protobuf": {
@@ -2548,6 +2565,21 @@
               "version": "v0.0.0-20200526211855-cb27e3aa2013"
             }
           },
+          "com_github_awslabs_aws_lambda_go_api_proxy": {
+            "bzlFile": "@@gazelle~//internal:go_repository.bzl",
+            "ruleClassName": "go_repository",
+            "attributes": {
+              "importpath": "github.com/awslabs/aws-lambda-go-api-proxy",
+              "build_directives": [],
+              "build_file_generation": "auto",
+              "build_extra_args": [],
+              "patches": [],
+              "patch_args": [],
+              "sum": "h1:x4F/VbWYt/f5K9+n3TAqbjFljDP52KWbYz/fNBvQdi8=",
+              "replace": "",
+              "version": "v0.16.1"
+            }
+          },
           "com_github_gogo_protobuf": {
             "bzlFile": "@@gazelle~//internal:go_repository.bzl",
             "ruleClassName": "go_repository",
@@ -2812,6 +2844,8 @@
             "ruleClassName": "_go_repository_config",
             "attributes": {
               "importpaths": {
+                "com_github_aws_aws_lambda_go": "github.com/aws/aws-lambda-go",
+                "com_github_awslabs_aws_lambda_go_api_proxy": "github.com/awslabs/aws-lambda-go-api-proxy",
                 "com_github_gin_contrib_zap": "github.com/gin-contrib/zap",
                 "com_github_gin_gonic_gin": "github.com/gin-gonic/gin",
                 "com_github_google_wire": "github.com/google/wire",
@@ -2976,6 +3010,8 @@
         },
         "moduleExtensionMetadata": {
           "explicitRootModuleDirectDeps": [
+            "com_github_aws_aws_lambda_go",
+            "com_github_awslabs_aws_lambda_go_api_proxy",
             "com_github_gin_contrib_zap",
             "com_github_gin_gonic_gin",
             "com_github_google_wire",
