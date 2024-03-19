@@ -1,0 +1,18 @@
+load("@rules_go//go:def.bzl", "go_library", "go_test")
+
+go_library(
+    name = "response",
+    srcs = [
+        "middleware.go",
+        "response.go",
+    ],
+    importpath = "github.com/blackhorseya/mundo/pkg/response",
+    visibility = ["//visibility:public"],
+    deps = ["@com_github_gin_gonic_gin//:gin"],
+)
+
+go_test(
+    name = "response_test",
+    srcs = ["response_test.go"],
+    embed = [":response"],
+)
