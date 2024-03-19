@@ -71,15 +71,5 @@ func bindEnv(v *viper.Viper) (err error) {
 		return err
 	}
 
-	err = v.BindEnv("irent.version", "IRENT_VERSION")
-	if err != nil {
-		return err
-	}
-
-	err = v.BindEnv("irent.http.url", "IRENT_HTTP_URL")
-	if err != nil {
-		return err
-	}
-
 	return nil
 }
