@@ -1,6 +1,6 @@
 {
   "lockFileVersion": 6,
-  "moduleFileHash": "686cf7dde13c8859bcc025391a7b2e60de7ad2ce111c289fbe7b309c151057a8",
+  "moduleFileHash": "5f112931194c8a2f5c810793aef871bbd951d4c4ec9476439819a2cf4dd46a2f",
   "flags": {
     "cmdRegistries": [
       "https://bcr.bazel.build/"
@@ -36,6 +36,7 @@
           "imports": {
             "com_github_gin_contrib_zap": "com_github_gin_contrib_zap",
             "com_github_gin_gonic_gin": "com_github_gin_gonic_gin",
+            "com_github_google_wire": "com_github_google_wire",
             "com_github_line_line_bot_sdk_go_v8": "com_github_line_line_bot_sdk_go_v8",
             "com_github_spf13_cobra": "com_github_spf13_cobra",
             "com_github_spf13_viper": "com_github_spf13_viper",
@@ -1967,10 +1968,10 @@
       "general": {
         "bzlTransitiveDigest": "D1+rhhbwX4ufoTmeUVxDpPg+Sknv3QzVXZnyK2zOjj4=",
         "recordedFileInputs": {
-          "@@//go.mod": "63b82de4545d495b02b12d5aeba4b4fe0a23cf5b7ccfbfea07aa27025dfe8947",
+          "@@//go.mod": "7784293032e0e1b81d206ac6477f81fe86783b2b8feb4f418dd5d2d4372ddd91",
           "@@rules_go~//go.mod": "de22304b720f7f61350ec1c9739de6c0a1b1103fd22bfeb6e92c6c843ddc6d6e",
           "@@gazelle~//go.sum": "7c4460e8ecb5dd8691a51d4fa2e9e4751108b933636497ce46db499fc2e7a88d",
-          "@@//go.sum": "998c4a792ead7247c135e149fee3a3e3d1749986caa10615d68286af6cde867a",
+          "@@//go.sum": "f720c34dbb86f7926d17fe867158430e0b83d9071fac24cbc9f7d690a7770092",
           "@@rules_go~//go.sum": "d56fdb19b21a5f12bcf625c49432371ac39c2def0f564098fbda107f7c080f40",
           "@@gazelle~//go.mod": "48dc6e771c3028ee1c18b9ffc81e596fd5f6d7e0016c5ef280e30f2821f60473"
         },
@@ -2215,6 +2216,21 @@
               "sum": "h1:pPC6BG5ex8PDFnkbrGU3EixyhKcQ2aDuBS36lqK/C7I=",
               "replace": "",
               "version": "v1.32.0"
+            }
+          },
+          "com_github_google_wire": {
+            "bzlFile": "@@gazelle~//internal:go_repository.bzl",
+            "ruleClassName": "go_repository",
+            "attributes": {
+              "importpath": "github.com/google/wire",
+              "build_directives": [],
+              "build_file_generation": "auto",
+              "build_extra_args": [],
+              "patches": [],
+              "patch_args": [],
+              "sum": "h1:HBkoIh4BdSxoyo9PveV8giw7ZsaBOvzWKfcg/6MrVwI=",
+              "replace": "",
+              "version": "v0.6.0"
             }
           },
           "org_golang_x_mod": {
@@ -2798,6 +2814,7 @@
               "importpaths": {
                 "com_github_gin_contrib_zap": "github.com/gin-contrib/zap",
                 "com_github_gin_gonic_gin": "github.com/gin-gonic/gin",
+                "com_github_google_wire": "github.com/google/wire",
                 "com_github_line_line_bot_sdk_go_v8": "github.com/line/line-bot-sdk-go/v8",
                 "com_github_spf13_cobra": "github.com/spf13/cobra",
                 "com_github_spf13_viper": "github.com/spf13/viper",
@@ -2961,6 +2978,7 @@
           "explicitRootModuleDirectDeps": [
             "com_github_gin_contrib_zap",
             "com_github_gin_gonic_gin",
+            "com_github_google_wire",
             "com_github_line_line_bot_sdk_go_v8",
             "com_github_spf13_cobra",
             "com_github_spf13_viper",
