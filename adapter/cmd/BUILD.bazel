@@ -11,6 +11,8 @@ go_library(
     deps = [
         "//adapter/restful",
         "//pkg/cmdx",
+        "//pkg/configx",
+        "//pkg/logging",
         "@com_github_spf13_cobra//:cobra",
     ],
 )

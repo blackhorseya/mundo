@@ -3,6 +3,8 @@ package cmd
 import (
 	"os"
 
+	"github.com/blackhorseya/mundo/pkg/configx"
+	"github.com/blackhorseya/mundo/pkg/logging"
 	"github.com/spf13/cobra"
 )
 
@@ -50,5 +52,9 @@ func init() {
 
 // initConfig reads in config file and ENV variables if set.
 func initConfig() {
-	// todo: 2024/3/19|sean|implement this function
+	err := configx.LoadWithPathAndName(cfgFile, "mundo")
+	cobra.CheckErr(err)
+
+	err = logging.InitWithConfig(configx.C.Log)
+	cobra.CheckErr(err)
 }
