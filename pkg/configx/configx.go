@@ -20,6 +20,10 @@ type Config struct {
 		Secret string `json:"secret" yaml:"secret"`
 		Token  string `json:"token" yaml:"token"`
 	} `json:"line_bot" yaml:"lineBot"`
+
+	OpenAI struct {
+		Key string `json:"key" yaml:"key"`
+	} `json:"openai" yaml:"openai"`
 }
 
 func (x *Config) String() string {

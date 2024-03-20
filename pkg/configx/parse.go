@@ -71,5 +71,10 @@ func bindEnv(v *viper.Viper) (err error) {
 		return err
 	}
 
+	err = v.BindEnv("openai.key", "OPENAI_KEY")
+	if err != nil {
+		return err
+	}
+
 	return nil
 }
