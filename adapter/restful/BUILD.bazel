@@ -9,6 +9,7 @@ go_library(
     importpath = "github.com/blackhorseya/mundo/adapter/restful",
     visibility = ["//visibility:public"],
     deps = [
+        "//adapter/restful/cmds",
         "//pkg/adapterx",
         "//pkg/configx",
         "//pkg/contextx",

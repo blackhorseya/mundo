@@ -6,6 +6,7 @@ import (
 	"os/signal"
 	"syscall"
 
+	"github.com/blackhorseya/mundo/adapter/restful/cmds"
 	"github.com/blackhorseya/mundo/pkg/adapterx"
 	"github.com/blackhorseya/mundo/pkg/configx"
 	"github.com/blackhorseya/mundo/pkg/contextx"
@@ -15,11 +16,15 @@ import (
 )
 
 type impl struct {
-	server *httpx.Server
+	server   *httpx.Server
+	commands []cmds.TextCommander
 }
 
 func newRestful(server *httpx.Server) adapterx.Restful {
-	return &impl{server: server}
+	return &impl{
+		server:   server,
+		commands: cmds.NewCommands(),
+	}
 }
 
 func newService(server *httpx.Server) adapterx.Servicer {
