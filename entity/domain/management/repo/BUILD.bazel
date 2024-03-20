@@ -1,0 +1,16 @@
+load("@rules_go//go:def.bzl", "go_library")
+
+go_library(
+    name = "repo",
+    srcs = [
+        "mock_wordbook.go",
+        "wordbook.go",
+    ],
+    importpath = "github.com/blackhorseya/mundo/entity/domain/management/repo",
+    visibility = ["//visibility:public"],
+    deps = [
+        "//entity/domain/management/agg",
+        "//pkg/contextx",
+        "@org_uber_go_mock//gomock",
+    ],
+)

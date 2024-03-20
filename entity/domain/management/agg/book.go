@@ -4,7 +4,7 @@ import (
 	"github.com/blackhorseya/mundo/entity/domain/management/model"
 )
 
-// WordBook is an aggregate for word book.
-type WordBook struct {
+// Wordbook is an aggregate for word book.
+type Wordbook struct {
 	model.Collection
 }

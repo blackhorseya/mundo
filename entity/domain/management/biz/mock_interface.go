@@ -37,10 +37,10 @@ func (m *MockIManagementBiz) EXPECT() *MockIManagementBizMockRecorder {
 }
 
 // CreateWordBook mocks base method.
-func (m *MockIManagementBiz) CreateWordBook(ctx contextx.Contextx, by *agg.Member, name string) (*agg0.WordBook, error) {
+func (m *MockIManagementBiz) CreateWordBook(ctx contextx.Contextx, by *agg.Member, name string) (*agg0.Wordbook, error) {
 	m.ctrl.T.Helper()
 	ret := m.ctrl.Call(m, "CreateWordBook", ctx, by, name)
-	ret0, _ := ret[0].(*agg0.WordBook)
+	ret0, _ := ret[0].(*agg0.Wordbook)
 	ret1, _ := ret[1].(error)
 	return ret0, ret1
 }
@@ -52,10 +52,10 @@ func (mr *MockIManagementBizMockRecorder) CreateWordBook(ctx, by, name interface
 }
 
 // GetWordBookByID mocks base method.
-func (m *MockIManagementBiz) GetWordBookByID(ctx contextx.Contextx, id string) (*agg0.WordBook, error) {
+func (m *MockIManagementBiz) GetWordBookByID(ctx contextx.Contextx, id string) (*agg0.Wordbook, error) {
 	m.ctrl.T.Helper()
 	ret := m.ctrl.Call(m, "GetWordBookByID", ctx, id)
-	ret0, _ := ret[0].(*agg0.WordBook)
+	ret0, _ := ret[0].(*agg0.Wordbook)
 	ret1, _ := ret[1].(error)
 	return ret0, ret1
 }

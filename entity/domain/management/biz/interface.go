@@ -11,8 +11,8 @@ import (
 // IManagementBiz is the interface for management biz.
 type IManagementBiz interface {
 	// CreateWordBook is used to create a word book.
-	CreateWordBook(ctx contextx.Contextx, by *idA.Member, name string) (item *agg.WordBook, err error)
+	CreateWordBook(ctx contextx.Contextx, by *idA.Member, name string) (item *agg.Wordbook, err error)
 
 	// GetWordBookByID is used to get a word book by id.
-	GetWordBookByID(ctx contextx.Contextx, id string) (item *agg.WordBook, err error)
+	GetWordBookByID(ctx contextx.Contextx, id string) (item *agg.Wordbook, err error)
 }
