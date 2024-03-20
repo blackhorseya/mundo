@@ -1,6 +1,6 @@
 {
   "lockFileVersion": 6,
-  "moduleFileHash": "34de90c39598e7415c455bbe8cabf153c817ba2f4c7568eccca811e7571a69ba",
+  "moduleFileHash": "75db90fffc98702e1c6afd9d5c7b722b74c650e05576207150eecc1e97c99729",
   "flags": {
     "cmdRegistries": [
       "https://bcr.bazel.build/"
@@ -44,6 +44,7 @@
             "com_github_sashabaranov_go_openai": "com_github_sashabaranov_go_openai",
             "com_github_spf13_cobra": "com_github_spf13_cobra",
             "com_github_spf13_viper": "com_github_spf13_viper",
+            "com_github_stretchr_testify": "com_github_stretchr_testify",
             "com_github_testcontainers_testcontainers_go": "com_github_testcontainers_testcontainers_go",
             "com_github_testcontainers_testcontainers_go_modules_mongodb": "com_github_testcontainers_testcontainers_go_modules_mongodb",
             "org_mongodb_go_mongo_driver": "org_mongodb_go_mongo_driver",
@@ -1976,7 +1977,7 @@
       "general": {
         "bzlTransitiveDigest": "D1+rhhbwX4ufoTmeUVxDpPg+Sknv3QzVXZnyK2zOjj4=",
         "recordedFileInputs": {
-          "@@//go.mod": "682403406b505d8d66e0cb9612692eb25f2c02e6a4e8183cb197b68820f4a888",
+          "@@//go.mod": "c37890a2fcba4bba783a3dbd2d60f09e286e490977c09c0e1e47a0304e43aeee",
           "@@rules_go~//go.mod": "de22304b720f7f61350ec1c9739de6c0a1b1103fd22bfeb6e92c6c843ddc6d6e",
           "@@gazelle~//go.sum": "7c4460e8ecb5dd8691a51d4fa2e9e4751108b933636497ce46db499fc2e7a88d",
           "@@//go.sum": "6e6c0c83f9b7784f95b61736cffb1afd580ac2b085d2dcccf782ca5432c785eb",
@@ -2386,9 +2387,9 @@
               "build_extra_args": [],
               "patches": [],
               "patch_args": [],
-              "sum": "h1:4DBwDE0NGyQoBHbLQYPwSUPoCMWR5BEzIk/f1lZbAQM=",
+              "sum": "h1:Jamvg5psRIccs7FGNTlIRMkT8wgtp5eCXdBlqhYGL6U=",
               "replace": "",
-              "version": "v1.0.0"
+              "version": "v1.0.1-0.20181226105442-5d4384ee4fb2"
             }
           },
           "com_github_mattn_go_isatty": {
@@ -3248,6 +3249,21 @@
               "version": "v4.6.1"
             }
           },
+          "com_github_davecgh_go_spew": {
+            "bzlFile": "@@gazelle~//internal:go_repository.bzl",
+            "ruleClassName": "go_repository",
+            "attributes": {
+              "importpath": "github.com/davecgh/go-spew",
+              "build_directives": [],
+              "build_file_generation": "auto",
+              "build_extra_args": [],
+              "patches": [],
+              "patch_args": [],
+              "sum": "h1:U9qPSI2PIWSS1VwoXQT9A3Wy9MM3WgvqSxFWenqJduM=",
+              "replace": "",
+              "version": "v1.1.2-0.20180830191138-d8f796af33cc"
+            }
+          },
           "com_github_bazelbuild_buildtools": {
             "bzlFile": "@@gazelle~//internal:go_repository.bzl",
             "ruleClassName": "go_repository",
@@ -3291,6 +3307,21 @@
               "sum": "h1:/FpZ+JaygUR/lZP2NlFI2DVfrOEMAIKP5wWEJdoYe9E=",
               "replace": "",
               "version": "v0.3.1"
+            }
+          },
+          "com_github_stretchr_testify": {
+            "bzlFile": "@@gazelle~//internal:go_repository.bzl",
+            "ruleClassName": "go_repository",
+            "attributes": {
+              "importpath": "github.com/stretchr/testify",
+              "build_directives": [],
+              "build_file_generation": "auto",
+              "build_extra_args": [],
+              "patches": [],
+              "patch_args": [],
+              "sum": "h1:HtqpIVDClZ4nwg75+f6Lvsy/wHu+3BoSGCbBAcpTsTg=",
+              "replace": "",
+              "version": "v1.9.0"
             }
           },
           "com_github_pkg_errors": {
@@ -3625,6 +3656,7 @@
                 "com_github_sashabaranov_go_openai": "github.com/sashabaranov/go-openai",
                 "com_github_spf13_cobra": "github.com/spf13/cobra",
                 "com_github_spf13_viper": "github.com/spf13/viper",
+                "com_github_stretchr_testify": "github.com/stretchr/testify",
                 "com_github_testcontainers_testcontainers_go": "github.com/testcontainers/testcontainers-go",
                 "com_github_testcontainers_testcontainers_go_modules_mongodb": "github.com/testcontainers/testcontainers-go/modules/mongodb",
                 "org_mongodb_go_mongo_driver": "go.mongodb.org/mongo-driver",
@@ -3641,6 +3673,7 @@
                 "com_github_containerd_containerd": "github.com/containerd/containerd",
                 "com_github_containerd_log": "github.com/containerd/log",
                 "com_github_cpuguy83_dockercfg": "github.com/cpuguy83/dockercfg",
+                "com_github_davecgh_go_spew": "github.com/davecgh/go-spew",
                 "com_github_distribution_reference": "github.com/distribution/reference",
                 "com_github_docker_docker": "github.com/docker/docker",
                 "com_github_docker_go_connections": "github.com/docker/go-connections",
@@ -3681,6 +3714,7 @@
                 "com_github_opencontainers_go_digest": "github.com/opencontainers/go-digest",
                 "com_github_opencontainers_image_spec": "github.com/opencontainers/image-spec",
                 "com_github_pelletier_go_toml_v2": "github.com/pelletier/go-toml/v2",
+                "com_github_pmezard_go_difflib": "github.com/pmezard/go-difflib",
                 "com_github_power_devops_perfstat": "github.com/power-devops/perfstat",
                 "com_github_sagikazarmark_locafero": "github.com/sagikazarmark/locafero",
                 "com_github_sagikazarmark_slog_shim": "github.com/sagikazarmark/slog-shim",
@@ -3726,7 +3760,6 @@
                 "com_github_bazelbuild_buildtools": "github.com/bazelbuild/buildtools",
                 "com_github_bmatcuk_doublestar_v4": "github.com/bmatcuk/doublestar/v4",
                 "com_github_google_go_cmp": "github.com/google/go-cmp",
-                "com_github_pmezard_go_difflib": "github.com/pmezard/go-difflib",
                 "org_golang_x_tools_go_vcs": "golang.org/x/tools/go/vcs",
                 "@rules_go~": "github.com/bazelbuild/rules_go",
                 "@gazelle~": "github.com/bazelbuild/bazel-gazelle"
@@ -3826,6 +3859,7 @@
             "com_github_sashabaranov_go_openai",
             "com_github_spf13_cobra",
             "com_github_spf13_viper",
+            "com_github_stretchr_testify",
             "com_github_testcontainers_testcontainers_go",
             "com_github_testcontainers_testcontainers_go_modules_mongodb",
             "org_mongodb_go_mongo_driver",

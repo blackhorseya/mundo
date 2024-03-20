@@ -3,6 +3,9 @@ package mongodb
 import (
 	"time"
 
+	"github.com/blackhorseya/mundo/entity/domain/management/agg"
+	"github.com/blackhorseya/mundo/entity/domain/management/repo"
+	"github.com/blackhorseya/mundo/pkg/contextx"
 	"go.mongodb.org/mongo-driver/mongo"
 )
 
@@ -14,4 +17,19 @@ const (
 
 type impl struct {
 	rw *mongo.Client
+}
+
+// NewWordbookRepo is used to create a new wordbook repository.
+func NewWordbookRepo(rw *mongo.Client) repo.IWordbookRepo {
+	return &impl{rw: rw}
+}
+
+func (i *impl) Create(ctx contextx.Contextx, book *agg.Wordbook) (err error) {
+	// todo: 2024/3/21|sean|implement me
+	panic("implement me")
+}
+
+func (i *impl) GetByID(ctx contextx.Contextx, id string) (item *agg.Wordbook, err error) {
+	// todo: 2024/3/21|sean|implement me
+	panic("implement me")
 }

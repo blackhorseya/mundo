@@ -1,9 +1,27 @@
-load("@rules_go//go:def.bzl", "go_library")
+load("@rules_go//go:def.bzl", "go_library", "go_test")
 
 go_library(
     name = "mongodb",
     srcs = ["mongodb.go"],
     importpath = "github.com/blackhorseya/mundo/app/domain/management/repo/wordbook/mongodb",
     visibility = ["//visibility:public"],
-    deps = ["@org_mongodb_go_mongo_driver//mongo"],
+    deps = [
+        "//entity/domain/management/agg",
+        "//entity/domain/management/repo",
+        "//pkg/contextx",
+        "@org_mongodb_go_mongo_driver//mongo",
+    ],
+)
+
+go_test(
+    name = "mongodb_test",
+    srcs = ["mongodb_test.go"],
+    embed = [":mongodb"],
+    deps = [
+        "//entity/domain/management/repo",
+        "//pkg/contextx",
+        "//pkg/storage/mongodbx",
+        "@com_github_stretchr_testify//suite",
+        "@org_mongodb_go_mongo_driver//mongo",
+    ],
 )
