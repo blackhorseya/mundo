@@ -8,4 +8,9 @@ go_library(
     ],
     importpath = "github.com/blackhorseya/mundo/adapter/restful/cmds",
     visibility = ["//visibility:public"],
+    deps = [
+        "//entity/domain/identity/agg",
+        "//pkg/contextx",
+        "@com_github_line_line_bot_sdk_go_v8//linebot/messaging_api",
+    ],
 )
