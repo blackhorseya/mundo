@@ -25,8 +25,18 @@ func NewWordbookRepo(rw *mongo.Client) repo.IWordbookRepo {
 }
 
 func (i *impl) Create(ctx contextx.Contextx, book *agg.Wordbook) (err error) {
-	// todo: 2024/3/21|sean|implement me
-	panic("implement me")
+	timeout, cancelFunc := contextx.WithTimeout(ctx, timeoutDuration)
+	defer cancelFunc()
+
+	created := newWordbook(book)
+	coll := i.rw.Database(dbName).Collection(collName)
+	_, err = coll.InsertOne(timeout, created)
+	if err != nil {
+		return err
+	}
+
+	book.ID = created.ID.Hex()
+	return nil
 }
 
 func (i *impl) GetByID(ctx contextx.Contextx, id string) (item *agg.Wordbook, err error) {

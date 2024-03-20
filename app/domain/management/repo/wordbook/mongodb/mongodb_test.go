@@ -3,6 +3,8 @@ package mongodb
 import (
 	"testing"
 
+	"github.com/blackhorseya/mundo/entity/domain/management/agg"
+	"github.com/blackhorseya/mundo/entity/domain/management/model"
 	"github.com/blackhorseya/mundo/entity/domain/management/repo"
 	"github.com/blackhorseya/mundo/pkg/contextx"
 	"github.com/blackhorseya/mundo/pkg/storage/mongodbx"
@@ -47,4 +49,43 @@ func (s *suiteTester) TearDownTest() {
 
 func TestAll(t *testing.T) {
 	suite.Run(t, new(suiteTester))
+}
+
+func (s *suiteTester) Test_impl_Create() {
+	book1 := &agg.Wordbook{
+		Collection: model.Collection{
+			ID:      "",
+			Name:    "book1",
+			OwnerID: "tester1",
+		},
+	}
+
+	type args struct {
+		ctx  contextx.Contextx
+		book *agg.Wordbook
+		mock func()
+	}
+	tests := []struct {
+		name    string
+		args    args
+		wantErr bool
+	}{
+		{
+			name:    "create then ok",
+			args:    args{book: book1},
+			wantErr: false,
+		},
+	}
+	for _, tt := range tests {
+		s.T().Run(tt.name, func(t *testing.T) {
+			tt.args.ctx = contextx.Background()
+			if tt.args.mock != nil {
+				tt.args.mock()
+			}
+
+			if err := s.repo.Create(tt.args.ctx, tt.args.book); (err != nil) != tt.wantErr {
+				t.Errorf("Create() error = %v, wantErr %v", err, tt.wantErr)
+			}
+		})
+	}
 }
