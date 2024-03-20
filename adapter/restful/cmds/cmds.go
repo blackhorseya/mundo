@@ -16,5 +16,6 @@ type TextCommander interface {
 func NewCommands() []TextCommander {
 	return []TextCommander{
 		&PingCommand{},
+		&WhoAmICommand{},
 	}
 }
