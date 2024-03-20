@@ -12,6 +12,6 @@ go_library(
         "//entity/domain/identity/agg",
         "//entity/domain/management/agg",
         "//pkg/contextx",
-        "@org_uber_go_mock//gomock:go_default_library",
+        "@org_uber_go_mock//gomock",
     ],
 )
