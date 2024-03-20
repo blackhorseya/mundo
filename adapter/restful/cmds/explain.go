@@ -1,6 +1,8 @@
 package cmds
 
 import (
+	"strings"
+
 	"github.com/blackhorseya/mundo/entity/domain/identity/agg"
 	"github.com/blackhorseya/mundo/pkg/contextx"
 	"github.com/blackhorseya/mundo/pkg/openaix"
@@ -17,6 +19,16 @@ func (cmd *ExplainCommand) Execute(
 	who *agg.Member,
 	text string,
 ) ([]messaging_api.MessageInterface, error) {
-	// todo: 2024/3/20|sean|implement explain command
+	if strings.HasPrefix(text, "explain.") {
+		word := strings.TrimPrefix(text, "explain.")
+		// todo: 2024/3/20|sean|implement explain command
+
+		return []messaging_api.MessageInterface{
+			&messaging_api.TextMessage{
+				Text: word,
+			},
+		}, nil
+	}
+
 	return nil, nil
 }
