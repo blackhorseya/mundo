@@ -1,6 +1,6 @@
 {
   "lockFileVersion": 6,
-  "moduleFileHash": "3d859413d0477f57fb2ad2f4b5762b9c840d811ff3d6d2b6701525c0d9edf51b",
+  "moduleFileHash": "5ab02d4f3f0a22f62ec4f4fb64799a716c2af16d4c0239956b1543dc2bf09c36",
   "flags": {
     "cmdRegistries": [
       "https://bcr.bazel.build/"
@@ -40,6 +40,7 @@
             "com_github_gin_gonic_gin": "com_github_gin_gonic_gin",
             "com_github_google_wire": "com_github_google_wire",
             "com_github_line_line_bot_sdk_go_v8": "com_github_line_line_bot_sdk_go_v8",
+            "com_github_sashabaranov_go_openai": "com_github_sashabaranov_go_openai",
             "com_github_spf13_cobra": "com_github_spf13_cobra",
             "com_github_spf13_viper": "com_github_spf13_viper",
             "org_uber_go_zap": "org_uber_go_zap"
@@ -1970,7 +1971,7 @@
       "general": {
         "bzlTransitiveDigest": "D1+rhhbwX4ufoTmeUVxDpPg+Sknv3QzVXZnyK2zOjj4=",
         "recordedFileInputs": {
-          "@@//go.mod": "65d0eb73defc3fbd5de77bcae901b33ed8227cc904e6ae468ac0d5ba7b3bdd61",
+          "@@//go.mod": "912ec8c39201f63fb8cb5590267c267a53a22ccbed637635cc2e971b6e7c2493",
           "@@rules_go~//go.mod": "de22304b720f7f61350ec1c9739de6c0a1b1103fd22bfeb6e92c6c843ddc6d6e",
           "@@gazelle~//go.sum": "7c4460e8ecb5dd8691a51d4fa2e9e4751108b933636497ce46db499fc2e7a88d",
           "@@//go.sum": "61428673379040fa8c1aacaa4ecd230d805ba42100ab7772823f8c8d65261284",
@@ -2865,6 +2866,7 @@
                 "com_github_gin_gonic_gin": "github.com/gin-gonic/gin",
                 "com_github_google_wire": "github.com/google/wire",
                 "com_github_line_line_bot_sdk_go_v8": "github.com/line/line-bot-sdk-go/v8",
+                "com_github_sashabaranov_go_openai": "github.com/sashabaranov/go-openai",
                 "com_github_spf13_cobra": "github.com/spf13/cobra",
                 "com_github_spf13_viper": "github.com/spf13/viper",
                 "org_uber_go_zap": "go.uber.org/zap",
@@ -2891,7 +2893,6 @@
                 "com_github_pelletier_go_toml_v2": "github.com/pelletier/go-toml/v2",
                 "com_github_sagikazarmark_locafero": "github.com/sagikazarmark/locafero",
                 "com_github_sagikazarmark_slog_shim": "github.com/sagikazarmark/slog-shim",
-                "com_github_sashabaranov_go_openai": "github.com/sashabaranov/go-openai",
                 "com_github_sourcegraph_conc": "github.com/sourcegraph/conc",
                 "com_github_spf13_afero": "github.com/spf13/afero",
                 "com_github_spf13_cast": "github.com/spf13/cast",
@@ -3032,6 +3033,7 @@
             "com_github_gin_gonic_gin",
             "com_github_google_wire",
             "com_github_line_line_bot_sdk_go_v8",
+            "com_github_sashabaranov_go_openai",
             "com_github_spf13_cobra",
             "com_github_spf13_viper",
             "org_uber_go_zap"
