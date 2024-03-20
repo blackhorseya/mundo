@@ -4,6 +4,7 @@ go_library(
     name = "cmds",
     srcs = [
         "cmds.go",
+        "create_book.go",
         "explain.go",
         "ping.go",
         "whoami.go",
