@@ -1,7 +1,9 @@
 package model
 
 import (
+	"bytes"
 	"embed"
+	"fmt"
 	"io/fs"
 	"log"
 	"text/template"
@@ -38,4 +40,20 @@ func init() {
 
 		templates[tmpl.Name()] = pt
 	}
+}
+
+// GetPromptByString get template by string.
+func GetPromptByString(name string, data map[string]any) (string, error) {
+	tmpl, ok := templates[name]
+	if !ok {
+		return "", fmt.Errorf("template %s not found", name)
+	}
+
+	var tpl bytes.Buffer
+	err := tmpl.Execute(&tpl, data)
+	if err != nil {
+		return "", err
+	}
+
+	return tpl.String(), nil
 }
