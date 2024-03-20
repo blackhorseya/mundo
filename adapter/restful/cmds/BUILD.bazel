@@ -5,6 +5,7 @@ go_library(
     srcs = [
         "cmds.go",
         "ping.go",
+        "whoami.go",
     ],
     importpath = "github.com/blackhorseya/mundo/adapter/restful/cmds",
     visibility = ["//visibility:public"],
