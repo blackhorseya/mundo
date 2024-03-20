@@ -12,6 +12,7 @@ go_library(
     visibility = ["//visibility:public"],
     deps = [
         "//entity/domain/identity/agg",
+        "//entity/domain/query/model",
         "//pkg/contextx",
         "//pkg/openaix",
         "@com_github_line_line_bot_sdk_go_v8//linebot/messaging_api",

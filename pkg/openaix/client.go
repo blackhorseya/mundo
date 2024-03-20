@@ -31,7 +31,6 @@ func NewClient() (*Client, error) {
 func (c *Client) CreateFunctionCall(
 	ctx contextx.Contextx,
 	content string,
-	tools []openai.Tool,
 ) (resp openai.ChatCompletionResponse, err error) {
 	return c.Client.CreateChatCompletion(ctx, openai.ChatCompletionRequest{
 		Model: defaultModel,
@@ -46,7 +45,5 @@ func (c *Client) CreateFunctionCall(
 		TopP:             defaultTopP,
 		PresencePenalty:  0.0,
 		FrequencyPenalty: 0.0,
-		Tools:            tools,
-		ToolChoice:       "auto",
 	})
 }
