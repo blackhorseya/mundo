@@ -7,9 +7,12 @@
 package restful
 
 import (
+	"github.com/blackhorseya/mundo/app/domain/management/biz"
+	"github.com/blackhorseya/mundo/app/domain/management/repo/wordbook/mongodb"
 	"github.com/blackhorseya/mundo/pkg/adapterx"
 	"github.com/blackhorseya/mundo/pkg/linebotx"
 	"github.com/blackhorseya/mundo/pkg/openaix"
+	"github.com/blackhorseya/mundo/pkg/storage/mongodbx"
 	"github.com/blackhorseya/mundo/pkg/transports/httpx"
 	"github.com/google/wire"
 	"github.com/spf13/viper"
@@ -30,7 +33,13 @@ func New(v *viper.Viper) (adapterx.Servicer, error) {
 	if err != nil {
 		return nil, err
 	}
-	servicer := newService(server, messagingApiAPI, client)
+	mongoClient, err := mongodbx.NewClient()
+	if err != nil {
+		return nil, err
+	}
+	iWordbookRepo := mongodb.NewWordbookRepo(mongoClient)
+	iManagementBiz := biz.NewManagementBiz(iWordbookRepo)
+	servicer := newService(server, messagingApiAPI, client, iManagementBiz)
 	return servicer, nil
 }
 
@@ -47,10 +56,16 @@ func NewRestful() (adapterx.Restful, error) {
 	if err != nil {
 		return nil, err
 	}
-	restful := newRestful(server, messagingApiAPI, client)
+	mongoClient, err := mongodbx.NewClient()
+	if err != nil {
+		return nil, err
+	}
+	iWordbookRepo := mongodb.NewWordbookRepo(mongoClient)
+	iManagementBiz := biz.NewManagementBiz(iWordbookRepo)
+	restful := newRestful(server, messagingApiAPI, client, iManagementBiz)
 	return restful, nil
 }
 
 // wire.go:
 
-var providerSet = wire.NewSet(httpx.NewServer, linebotx.NewClient, openaix.NewClient)
+var providerSet = wire.NewSet(httpx.NewServer, linebotx.NewClient, openaix.NewClient, biz.ProvideManagementBiz, mongodbx.NewClient)

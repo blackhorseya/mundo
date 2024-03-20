@@ -9,6 +9,7 @@ import (
 
 	"github.com/blackhorseya/mundo/adapter/restful/cmds"
 	"github.com/blackhorseya/mundo/entity/domain/identity/agg"
+	"github.com/blackhorseya/mundo/entity/domain/management/biz"
 	"github.com/blackhorseya/mundo/pkg/adapterx"
 	"github.com/blackhorseya/mundo/pkg/configx"
 	"github.com/blackhorseya/mundo/pkg/contextx"
@@ -25,17 +26,21 @@ type impl struct {
 	server   *httpx.Server
 	bot      *messaging_api.MessagingApiAPI
 	commands []cmds.TextCommander
+
+	mgmt biz.IManagementBiz
 }
 
 func newRestful(
 	server *httpx.Server,
 	bot *messaging_api.MessagingApiAPI,
 	client *openaix.Client,
+	mgmt biz.IManagementBiz,
 ) adapterx.Restful {
 	return &impl{
 		server:   server,
 		bot:      bot,
 		commands: cmds.NewCommands(client),
+		mgmt:     mgmt,
 	}
 }
 
@@ -43,8 +48,9 @@ func newService(
 	server *httpx.Server,
 	bot *messaging_api.MessagingApiAPI,
 	client *openaix.Client,
+	mgmt biz.IManagementBiz,
 ) adapterx.Servicer {
-	return newRestful(server, bot, client)
+	return newRestful(server, bot, client, mgmt)
 }
 
 func (i *impl) Start() error {
