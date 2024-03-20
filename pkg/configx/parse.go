@@ -76,5 +76,10 @@ func bindEnv(v *viper.Viper) (err error) {
 		return err
 	}
 
+	err = v.BindEnv("storage.mongodb.dsn", "STORAGE_MONGODB_DSN")
+	if err != nil {
+		return err
+	}
+
 	return nil
 }

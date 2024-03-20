@@ -24,6 +24,12 @@ type Config struct {
 	OpenAI struct {
 		Key string `json:"key" yaml:"key"`
 	} `json:"openai" yaml:"openai"`
+
+	Storage struct {
+		Mongodb struct {
+			DSN string `json:"dsn" yaml:"dsn"`
+		} `json:"mongodb" yaml:"mongodb"`
+	} `json:"storage" yaml:"storage"`
 }
 
 func (x *Config) String() string {
