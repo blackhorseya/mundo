@@ -2,7 +2,10 @@ load("@rules_go//go:def.bzl", "go_library")
 
 go_library(
     name = "cmds",
-    srcs = ["cmds.go"],
+    srcs = [
+        "cmds.go",
+        "ping.go",
+    ],
     importpath = "github.com/blackhorseya/mundo/adapter/restful/cmds",
     visibility = ["//visibility:public"],
 )
