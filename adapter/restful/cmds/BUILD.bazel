@@ -4,6 +4,7 @@ go_library(
     name = "cmds",
     srcs = [
         "cmds.go",
+        "explain.go",
         "ping.go",
         "whoami.go",
     ],
@@ -12,6 +13,7 @@ go_library(
     deps = [
         "//entity/domain/identity/agg",
         "//pkg/contextx",
+        "//pkg/openaix",
         "@com_github_line_line_bot_sdk_go_v8//linebot/messaging_api",
     ],
 )

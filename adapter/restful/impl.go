@@ -12,6 +12,7 @@ import (
 	"github.com/blackhorseya/mundo/pkg/adapterx"
 	"github.com/blackhorseya/mundo/pkg/configx"
 	"github.com/blackhorseya/mundo/pkg/contextx"
+	"github.com/blackhorseya/mundo/pkg/openaix"
 	"github.com/blackhorseya/mundo/pkg/transports/httpx"
 	"github.com/gin-gonic/gin"
 	"github.com/line/line-bot-sdk-go/v8/linebot"
@@ -26,16 +27,24 @@ type impl struct {
 	commands []cmds.TextCommander
 }
 
-func newRestful(server *httpx.Server, bot *messaging_api.MessagingApiAPI) adapterx.Restful {
+func newRestful(
+	server *httpx.Server,
+	bot *messaging_api.MessagingApiAPI,
+	client *openaix.Client,
+) adapterx.Restful {
 	return &impl{
 		server:   server,
 		bot:      bot,
-		commands: cmds.NewCommands(),
+		commands: cmds.NewCommands(client),
 	}
 }
 
-func newService(server *httpx.Server, bot *messaging_api.MessagingApiAPI) adapterx.Servicer {
-	return newRestful(server, bot)
+func newService(
+	server *httpx.Server,
+	bot *messaging_api.MessagingApiAPI,
+	client *openaix.Client,
+) adapterx.Servicer {
+	return newRestful(server, bot, client)
 }
 
 func (i *impl) Start() error {

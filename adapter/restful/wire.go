@@ -7,6 +7,7 @@ package restful
 import (
 	"github.com/blackhorseya/mundo/pkg/adapterx"
 	"github.com/blackhorseya/mundo/pkg/linebotx"
+	"github.com/blackhorseya/mundo/pkg/openaix"
 	"github.com/blackhorseya/mundo/pkg/transports/httpx"
 	"github.com/google/wire"
 	"github.com/spf13/viper"
@@ -15,6 +16,7 @@ import (
 var providerSet = wire.NewSet(
 	httpx.NewServer,
 	linebotx.NewClient,
+	openaix.NewClient,
 )
 
 func New(v *viper.Viper) (adapterx.Servicer, error) {
