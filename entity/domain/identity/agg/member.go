@@ -6,5 +6,5 @@ import (
 
 // Member is an aggregate root for member.
 type Member struct {
-	*model.User `json:",inline"`
+	model.User `json:",inline"`
 }
