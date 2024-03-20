@@ -1,0 +1,9 @@
+load("@rules_go//go:def.bzl", "go_library")
+
+go_library(
+    name = "agg",
+    srcs = ["member.go"],
+    importpath = "github.com/blackhorseya/mundo/entity/domain/identity/agg",
+    visibility = ["//visibility:public"],
+    deps = ["//entity/domain/identity/model"],
+)
