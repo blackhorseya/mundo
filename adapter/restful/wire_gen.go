@@ -8,6 +8,7 @@ package restful
 
 import (
 	"github.com/blackhorseya/mundo/pkg/adapterx"
+	"github.com/blackhorseya/mundo/pkg/linebotx"
 	"github.com/blackhorseya/mundo/pkg/transports/httpx"
 	"github.com/google/wire"
 	"github.com/spf13/viper"
@@ -20,7 +21,11 @@ func New(v *viper.Viper) (adapterx.Servicer, error) {
 	if err != nil {
 		return nil, err
 	}
-	servicer := newService(server)
+	messagingApiAPI, err := linebotx.NewClient()
+	if err != nil {
+		return nil, err
+	}
+	servicer := newService(server, messagingApiAPI)
 	return servicer, nil
 }
 
@@ -29,10 +34,14 @@ func NewRestful() (adapterx.Restful, error) {
 	if err != nil {
 		return nil, err
 	}
-	restful := newRestful(server)
+	messagingApiAPI, err := linebotx.NewClient()
+	if err != nil {
+		return nil, err
+	}
+	restful := newRestful(server, messagingApiAPI)
 	return restful, nil
 }
 
 // wire.go:
 
-var providerSet = wire.NewSet(httpx.NewServer)
+var providerSet = wire.NewSet(httpx.NewServer, linebotx.NewClient)

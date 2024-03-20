@@ -6,12 +6,16 @@ package restful
 
 import (
 	"github.com/blackhorseya/mundo/pkg/adapterx"
+	"github.com/blackhorseya/mundo/pkg/linebotx"
 	"github.com/blackhorseya/mundo/pkg/transports/httpx"
 	"github.com/google/wire"
 	"github.com/spf13/viper"
 )
 
-var providerSet = wire.NewSet(httpx.NewServer)
+var providerSet = wire.NewSet(
+	httpx.NewServer,
+	linebotx.NewClient,
+)
 
 func New(v *viper.Viper) (adapterx.Servicer, error) {
 	panic(wire.Build(newService, providerSet))
