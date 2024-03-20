@@ -1,0 +1,12 @@
+load("@rules_go//go:def.bzl", "go_library")
+
+go_library(
+    name = "openaix",
+    srcs = ["client.go"],
+    importpath = "github.com/blackhorseya/mundo/pkg/openaix",
+    visibility = ["//visibility:public"],
+    deps = [
+        "//pkg/configx",
+        "@com_github_sashabaranov_go_openai//:go-openai",
+    ],
+)

@@ -1970,10 +1970,10 @@
       "general": {
         "bzlTransitiveDigest": "D1+rhhbwX4ufoTmeUVxDpPg+Sknv3QzVXZnyK2zOjj4=",
         "recordedFileInputs": {
-          "@@//go.mod": "885ef52e4acc6f4d03abaf0f04f45962871b3418af2e3c946c94e9ba3ae257cf",
+          "@@//go.mod": "65d0eb73defc3fbd5de77bcae901b33ed8227cc904e6ae468ac0d5ba7b3bdd61",
           "@@rules_go~//go.mod": "de22304b720f7f61350ec1c9739de6c0a1b1103fd22bfeb6e92c6c843ddc6d6e",
           "@@gazelle~//go.sum": "7c4460e8ecb5dd8691a51d4fa2e9e4751108b933636497ce46db499fc2e7a88d",
-          "@@//go.sum": "1fcc9520f3e5f9fcd8815f2d0f9e1cf466c173dd53f874b48fd2a7d30f8bbec6",
+          "@@//go.sum": "61428673379040fa8c1aacaa4ecd230d805ba42100ab7772823f8c8d65261284",
           "@@rules_go~//go.sum": "d56fdb19b21a5f12bcf625c49432371ac39c2def0f564098fbda107f7c080f40",
           "@@gazelle~//go.mod": "48dc6e771c3028ee1c18b9ffc81e596fd5f6d7e0016c5ef280e30f2821f60473"
         },
@@ -2368,6 +2368,21 @@
               "sum": "h1:aJMhYGrd5QSmlpLMr2MftRKl7t8J8PTZPA732ud/XR8=",
               "replace": "",
               "version": "v1.27.0"
+            }
+          },
+          "com_github_sashabaranov_go_openai": {
+            "bzlFile": "@@gazelle~//internal:go_repository.bzl",
+            "ruleClassName": "go_repository",
+            "attributes": {
+              "importpath": "github.com/sashabaranov/go-openai",
+              "build_directives": [],
+              "build_file_generation": "auto",
+              "build_extra_args": [],
+              "patches": [],
+              "patch_args": [],
+              "sum": "h1:095xQ/fAtRa0+Rj21sezVJABgKfGPNbyx/sAN/hJUmg=",
+              "replace": "",
+              "version": "v1.20.4"
             }
           },
           "com_github_go_playground_locales": {
@@ -2876,6 +2891,7 @@
                 "com_github_pelletier_go_toml_v2": "github.com/pelletier/go-toml/v2",
                 "com_github_sagikazarmark_locafero": "github.com/sagikazarmark/locafero",
                 "com_github_sagikazarmark_slog_shim": "github.com/sagikazarmark/slog-shim",
+                "com_github_sashabaranov_go_openai": "github.com/sashabaranov/go-openai",
                 "com_github_sourcegraph_conc": "github.com/sourcegraph/conc",
                 "com_github_spf13_afero": "github.com/spf13/afero",
                 "com_github_spf13_cast": "github.com/spf13/cast",
