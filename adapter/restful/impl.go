@@ -26,8 +26,6 @@ type impl struct {
 	server   *httpx.Server
 	bot      *messaging_api.MessagingApiAPI
 	commands []cmds.TextCommander
-
-	mgmt biz.IManagementBiz
 }
 
 func newRestful(
@@ -39,8 +37,7 @@ func newRestful(
 	return &impl{
 		server:   server,
 		bot:      bot,
-		commands: cmds.NewCommands(client),
-		mgmt:     mgmt,
+		commands: cmds.NewCommands(client, mgmt),
 	}
 }
 

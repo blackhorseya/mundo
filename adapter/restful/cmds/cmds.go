@@ -2,6 +2,7 @@ package cmds
 
 import (
 	"github.com/blackhorseya/mundo/entity/domain/identity/agg"
+	"github.com/blackhorseya/mundo/entity/domain/management/biz"
 	"github.com/blackhorseya/mundo/pkg/contextx"
 	"github.com/blackhorseya/mundo/pkg/openaix"
 	"github.com/line/line-bot-sdk-go/v8/linebot/messaging_api"
@@ -14,10 +15,11 @@ type TextCommander interface {
 }
 
 // NewCommands is the function to create the text commands.
-func NewCommands(client *openaix.Client) []TextCommander {
+func NewCommands(client *openaix.Client, mgmt biz.IManagementBiz) []TextCommander {
 	return []TextCommander{
 		&PingCommand{},
 		&WhoAmICommand{},
 		&ExplainCommand{client: client},
+		&CreateBookCommand{mgmt: mgmt},
 	}
 }
