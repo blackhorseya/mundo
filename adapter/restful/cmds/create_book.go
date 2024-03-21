@@ -1,6 +1,8 @@
 package cmds
 
 import (
+	"strings"
+
 	"github.com/blackhorseya/mundo/entity/domain/identity/agg"
 	"github.com/blackhorseya/mundo/entity/domain/management/biz"
 	"github.com/blackhorseya/mundo/pkg/contextx"
@@ -17,6 +19,16 @@ func (cmd *CreateBookCommand) Execute(
 	who *agg.Member,
 	text string,
 ) ([]messaging_api.MessageInterface, error) {
-	// todo: 2024/3/21|sean|implement me
+	if strings.HasPrefix(text, "create.") {
+		name := strings.TrimPrefix(text, "create.")
+
+		// todo: 2024/3/21|sean|implement me
+		return []messaging_api.MessageInterface{
+			&messaging_api.TextMessage{
+				Text: name,
+			},
+		}, nil
+	}
+
 	return nil, nil
 }
