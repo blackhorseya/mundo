@@ -5,5 +5,8 @@ go_library(
     srcs = ["book.go"],
     importpath = "github.com/blackhorseya/mundo/entity/domain/management/agg",
     visibility = ["//visibility:public"],
-    deps = ["//entity/domain/management/model"],
+    deps = [
+        "//entity/domain/management/model",
+        "@com_github_line_line_bot_sdk_go_v8//linebot/messaging_api",
+    ],
 )
