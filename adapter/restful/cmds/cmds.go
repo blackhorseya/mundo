@@ -21,5 +21,6 @@ func NewCommands(client *openaix.Client, mgmt biz.IManagementBiz) []TextCommande
 		&WhoAmICommand{},
 		&ExplainCommand{client: client},
 		&CreateBookCommand{mgmt: mgmt},
+		&GetBookByNameCommand{mgmt: mgmt},
 	}
 }

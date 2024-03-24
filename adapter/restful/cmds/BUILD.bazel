@@ -6,6 +6,7 @@ go_library(
         "cmds.go",
         "create_book.go",
         "explain.go",
+        "get_book.go",
         "ping.go",
         "whoami.go",
     ],
