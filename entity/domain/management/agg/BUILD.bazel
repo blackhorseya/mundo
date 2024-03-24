@@ -3,6 +3,7 @@ load("@rules_go//go:def.bzl", "go_library")
 go_library(
     name = "agg",
     srcs = ["book.go"],
+    embedsrcs = ["book.tmpl"],
     importpath = "github.com/blackhorseya/mundo/entity/domain/management/agg",
     visibility = ["//visibility:public"],
     deps = [
