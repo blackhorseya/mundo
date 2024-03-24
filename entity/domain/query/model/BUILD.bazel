@@ -2,7 +2,10 @@ load("@rules_go//go:def.bzl", "go_library")
 
 go_library(
     name = "model",
-    srcs = ["prompt.go"],
+    srcs = [
+        "prompt.go",
+        "word.go",
+    ],
     embedsrcs = ["templates/explain.tmpl"],
     importpath = "github.com/blackhorseya/mundo/entity/domain/query/model",
     visibility = ["//visibility:public"],
