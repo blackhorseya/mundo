@@ -22,10 +22,20 @@ func (cmd *CreateBookCommand) Execute(
 	if strings.HasPrefix(text, "/create ") {
 		name := strings.TrimPrefix(text, "/create ")
 
-		// todo: 2024/3/21|sean|implement me
+		got, err := cmd.mgmt.CreateWordBook(ctx, who, name)
+		if err != nil {
+			return nil, err
+		}
+
+		container, err := got.FlexContainer()
+		if err != nil {
+			return nil, err
+		}
+
 		return []messaging_api.MessageInterface{
-			&messaging_api.TextMessage{
-				Text: name,
+			&messaging_api.FlexMessage{
+				AltText:  got.Name,
+				Contents: container,
 			},
 		}, nil
 	}
