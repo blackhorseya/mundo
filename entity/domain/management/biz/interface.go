@@ -13,6 +13,6 @@ type IManagementBiz interface {
 	// CreateWordBook is used to create a word book.
 	CreateWordBook(ctx contextx.Contextx, by *idA.Member, name string) (item *agg.Wordbook, err error)
 
-	// GetWordBookByID is used to get a word book by id.
-	GetWordBookByID(ctx contextx.Contextx, id string) (item *agg.Wordbook, err error)
+	// GetWordBookByName is used to get word book by name.
+	GetWordBookByName(ctx contextx.Contextx, name string) (item *agg.Wordbook, err error)
 }

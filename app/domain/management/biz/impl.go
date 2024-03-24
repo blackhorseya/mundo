@@ -24,7 +24,7 @@ func (i *impl) CreateWordBook(ctx contextx.Contextx, by *idA.Member, name string
 	panic("implement me")
 }
 
-func (i *impl) GetWordBookByID(ctx contextx.Contextx, id string) (item *agg.Wordbook, err error) {
+func (i *impl) GetWordBookByName(ctx contextx.Contextx, name string) (item *agg.Wordbook, err error) {
 	// todo: 2024/3/21|sean|implement me
 	panic("implement me")
 }
