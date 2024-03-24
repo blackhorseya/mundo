@@ -1,6 +1,8 @@
 package cmds
 
 import (
+	"strings"
+
 	"github.com/blackhorseya/mundo/entity/domain/identity/agg"
 	"github.com/blackhorseya/mundo/entity/domain/management/biz"
 	"github.com/blackhorseya/mundo/pkg/contextx"
@@ -17,6 +19,11 @@ func (cmd *AddWordToBookCommand) Execute(
 	who *agg.Member,
 	text string,
 ) ([]messaging_api.MessageInterface, error) {
+	// example command: /book_{name} add {word}
+	if !strings.HasPrefix(text, "/book_") {
+		return nil, nil
+	}
+
 	// todo: 2024/3/25|sean|implement add word to book command
 	return nil, nil
 }
