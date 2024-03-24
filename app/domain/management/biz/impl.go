@@ -4,8 +4,10 @@ import (
 	idA "github.com/blackhorseya/mundo/entity/domain/identity/agg"
 	"github.com/blackhorseya/mundo/entity/domain/management/agg"
 	"github.com/blackhorseya/mundo/entity/domain/management/biz"
+	"github.com/blackhorseya/mundo/entity/domain/management/model"
 	"github.com/blackhorseya/mundo/entity/domain/management/repo"
 	"github.com/blackhorseya/mundo/pkg/contextx"
+	"go.uber.org/zap"
 )
 
 type impl struct {
@@ -20,8 +22,20 @@ func NewManagementBiz(wordbooks repo.IWordbookRepo) biz.IManagementBiz {
 }
 
 func (i *impl) CreateWordBook(ctx contextx.Contextx, by *idA.Member, name string) (item *agg.Wordbook, err error) {
-	// todo: 2024/3/21|sean|implement me
-	panic("implement me")
+	ret := &agg.Wordbook{
+		Collection: model.Collection{
+			ID:      "",
+			Name:    name,
+			OwnerID: by.ID,
+		},
+	}
+	err = i.wordbooks.Create(ctx, ret)
+	if err != nil {
+		ctx.Error("create a wordbook into database failed", zap.Error(err))
+		return nil, err
+	}
+
+	return ret, nil
 }
 
 func (i *impl) GetWordBookByName(ctx contextx.Contextx, name string) (item *agg.Wordbook, err error) {

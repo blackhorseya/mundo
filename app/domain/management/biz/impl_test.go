@@ -1,12 +1,15 @@
 package biz
 
 import (
+	"errors"
 	"reflect"
 	"testing"
 
 	idA "github.com/blackhorseya/mundo/entity/domain/identity/agg"
+	"github.com/blackhorseya/mundo/entity/domain/identity/model"
 	"github.com/blackhorseya/mundo/entity/domain/management/agg"
 	"github.com/blackhorseya/mundo/entity/domain/management/biz"
+	model2 "github.com/blackhorseya/mundo/entity/domain/management/model"
 	"github.com/blackhorseya/mundo/entity/domain/management/repo"
 	"github.com/blackhorseya/mundo/pkg/contextx"
 	"github.com/stretchr/testify/suite"
@@ -36,6 +39,23 @@ func TestAll(t *testing.T) {
 }
 
 func (s *suiteTester) Test_impl_CreateWordBook() {
+	member1 := &idA.Member{
+		User: model.User{
+			ID: "tester1",
+			Profile: &model.Profile{
+				Name:  "tester1",
+				Email: "",
+			},
+		},
+	}
+	book1 := &agg.Wordbook{
+		Collection: model2.Collection{
+			ID:      "",
+			Name:    "test_book1",
+			OwnerID: member1.ID,
+		},
+	}
+
 	type args struct {
 		ctx  contextx.Contextx
 		by   *idA.Member
@@ -48,7 +68,22 @@ func (s *suiteTester) Test_impl_CreateWordBook() {
 		wantItem *agg.Wordbook
 		wantErr  bool
 	}{
-		// TODO: Add test cases.
+		{
+			name: "create by name then error",
+			args: args{by: member1, name: book1.Name, mock: func() {
+				s.wordbooks.EXPECT().Create(gomock.Any(), book1).Return(errors.New("mock error")).Times(1)
+			}},
+			wantItem: nil,
+			wantErr:  true,
+		},
+		{
+			name: "create by name then ok",
+			args: args{by: member1, name: book1.Name, mock: func() {
+				s.wordbooks.EXPECT().Create(gomock.Any(), book1).Return(nil).Times(1)
+			}},
+			wantItem: book1,
+			wantErr:  false,
+		},
 	}
 	for _, tt := range tests {
 		s.T().Run(tt.name, func(t *testing.T) {
