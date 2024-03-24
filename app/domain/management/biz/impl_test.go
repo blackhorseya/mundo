@@ -105,6 +105,14 @@ func (s *suiteTester) Test_impl_CreateWordBook() {
 }
 
 func (s *suiteTester) Test_impl_GetWordBookByName() {
+	book1 := &agg.Wordbook{
+		Collection: model2.Collection{
+			ID:      "test_book1",
+			Name:    "test_book1",
+			OwnerID: "tester1",
+		},
+	}
+
 	type args struct {
 		ctx  contextx.Contextx
 		name string
@@ -116,7 +124,22 @@ func (s *suiteTester) Test_impl_GetWordBookByName() {
 		wantItem *agg.Wordbook
 		wantErr  bool
 	}{
-		// TODO: Add test cases.
+		{
+			name: "get by name then error",
+			args: args{name: book1.Name, mock: func() {
+				s.wordbooks.EXPECT().GetByName(gomock.Any(), book1.Name).Return(nil, errors.New("mock error")).Times(1)
+			}},
+			wantItem: nil,
+			wantErr:  true,
+		},
+		{
+			name: "get by name then ok",
+			args: args{name: book1.Name, mock: func() {
+				s.wordbooks.EXPECT().GetByName(gomock.Any(), book1.Name).Return(book1, nil).Times(1)
+			}},
+			wantItem: book1,
+			wantErr:  false,
+		},
 	}
 	for _, tt := range tests {
 		s.T().Run(tt.name, func(t *testing.T) {

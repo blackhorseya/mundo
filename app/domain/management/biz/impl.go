@@ -39,6 +39,11 @@ func (i *impl) CreateWordBook(ctx contextx.Contextx, by *idA.Member, name string
 }
 
 func (i *impl) GetWordBookByName(ctx contextx.Contextx, name string) (item *agg.Wordbook, err error) {
-	// todo: 2024/3/21|sean|implement me
-	panic("implement me")
+	got, err := i.wordbooks.GetByName(ctx, name)
+	if err != nil {
+		ctx.Error("get a wordbook by name from database failed", zap.Error(err))
+		return nil, err
+	}
+
+	return got, nil
 }
