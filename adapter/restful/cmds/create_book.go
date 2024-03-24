@@ -19,8 +19,8 @@ func (cmd *CreateBookCommand) Execute(
 	who *agg.Member,
 	text string,
 ) ([]messaging_api.MessageInterface, error) {
-	if strings.HasPrefix(text, "create.") {
-		name := strings.TrimPrefix(text, "create.")
+	if strings.HasPrefix(text, "/create ") {
+		name := strings.TrimPrefix(text, "/create ")
 
 		// todo: 2024/3/21|sean|implement me
 		return []messaging_api.MessageInterface{

@@ -15,7 +15,7 @@ func (cmd *WhoAmICommand) Execute(
 	who *agg.Member,
 	text string,
 ) ([]messaging_api.MessageInterface, error) {
-	if text == "whoami" {
+	if text == "/whoami" {
 		return []messaging_api.MessageInterface{
 			&messaging_api.TextMessage{
 				Text: who.ID,

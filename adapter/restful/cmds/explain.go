@@ -21,8 +21,8 @@ func (cmd *ExplainCommand) Execute(
 	who *agg.Member,
 	text string,
 ) ([]messaging_api.MessageInterface, error) {
-	if strings.HasPrefix(text, "explain.") {
-		word := strings.TrimPrefix(text, "explain.")
+	if strings.HasPrefix(text, "/explain ") {
+		word := strings.TrimPrefix(text, "/explain ")
 		prompt, err := model.GetPromptByString(model.ExplainTemplate, map[string]any{
 			"word": word,
 		})
