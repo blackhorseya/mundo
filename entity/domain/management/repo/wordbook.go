@@ -12,6 +12,6 @@ type IWordbookRepo interface {
 	// Create is used to create a wordbook.
 	Create(ctx contextx.Contextx, book *agg.Wordbook) (err error)
 
-	// GetByID is used to get a wordbook by id.
-	GetByID(ctx contextx.Contextx, id string) (item *agg.Wordbook, err error)
+	// GetByName is used to get a wordbook by name.
+	GetByName(ctx contextx.Contextx, name string) (item *agg.Wordbook, err error)
 }

@@ -39,7 +39,7 @@ func (i *impl) Create(ctx contextx.Contextx, book *agg.Wordbook) (err error) {
 	return nil
 }
 
-func (i *impl) GetByID(ctx contextx.Contextx, id string) (item *agg.Wordbook, err error) {
+func (i *impl) GetByName(ctx contextx.Contextx, name string) (item *agg.Wordbook, err error) {
 	// todo: 2024/3/21|sean|implement me
 	panic("implement me")
 }

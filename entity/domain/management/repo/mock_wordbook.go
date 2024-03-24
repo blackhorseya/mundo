@@ -49,17 +49,17 @@ func (mr *MockIWordbookRepoMockRecorder) Create(ctx, book interface{}) *gomock.C
 	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "Create", reflect.TypeOf((*MockIWordbookRepo)(nil).Create), ctx, book)
 }
 
-// GetByID mocks base method.
-func (m *MockIWordbookRepo) GetByID(ctx contextx.Contextx, id string) (*agg.Wordbook, error) {
+// GetByName mocks base method.
+func (m *MockIWordbookRepo) GetByName(ctx contextx.Contextx, name string) (*agg.Wordbook, error) {
 	m.ctrl.T.Helper()
-	ret := m.ctrl.Call(m, "GetByID", ctx, id)
+	ret := m.ctrl.Call(m, "GetByName", ctx, name)
 	ret0, _ := ret[0].(*agg.Wordbook)
 	ret1, _ := ret[1].(error)
 	return ret0, ret1
 }
 
-// GetByID indicates an expected call of GetByID.
-func (mr *MockIWordbookRepoMockRecorder) GetByID(ctx, id interface{}) *gomock.Call {
+// GetByName indicates an expected call of GetByName.
+func (mr *MockIWordbookRepoMockRecorder) GetByName(ctx, name interface{}) *gomock.Call {
 	mr.mock.ctrl.T.Helper()
-	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "GetByID", reflect.TypeOf((*MockIWordbookRepo)(nil).GetByID), ctx, id)
+	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "GetByName", reflect.TypeOf((*MockIWordbookRepo)(nil).GetByName), ctx, name)
 }
