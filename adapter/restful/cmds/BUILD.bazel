@@ -3,6 +3,7 @@ load("@rules_go//go:def.bzl", "go_library")
 go_library(
     name = "cmds",
     srcs = [
+        "add_word_to_book.go",
         "cmds.go",
         "create_book.go",
         "explain.go",
