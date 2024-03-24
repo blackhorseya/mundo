@@ -6,6 +6,7 @@ import (
 	"github.com/blackhorseya/mundo/entity/domain/management/agg"
 	"github.com/blackhorseya/mundo/entity/domain/management/repo"
 	"github.com/blackhorseya/mundo/pkg/contextx"
+	"go.mongodb.org/mongo-driver/bson"
 	"go.mongodb.org/mongo-driver/mongo"
 )
 
@@ -40,6 +41,16 @@ func (i *impl) Create(ctx contextx.Contextx, book *agg.Wordbook) (err error) {
 }
 
 func (i *impl) GetByName(ctx contextx.Contextx, name string) (item *agg.Wordbook, err error) {
-	// todo: 2024/3/21|sean|implement me
-	panic("implement me")
+	timeout, cancelFunc := contextx.WithTimeout(ctx, timeoutDuration)
+	defer cancelFunc()
+
+	filter := bson.M{"name": name}
+	coll := i.rw.Database(dbName).Collection(collName)
+	var got *wordbook
+	err = coll.FindOne(timeout, filter).Decode(&got)
+	if err != nil {
+		return nil, err
+	}
+
+	return got.ToAgg(), nil
 }

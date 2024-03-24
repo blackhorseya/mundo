@@ -1,7 +1,9 @@
 package mongodb
 
 import (
+	"reflect"
 	"testing"
+	"time"
 
 	"github.com/blackhorseya/mundo/entity/domain/management/agg"
 	"github.com/blackhorseya/mundo/entity/domain/management/model"
@@ -9,6 +11,7 @@ import (
 	"github.com/blackhorseya/mundo/pkg/contextx"
 	"github.com/blackhorseya/mundo/pkg/storage/mongodbx"
 	"github.com/stretchr/testify/suite"
+	"go.mongodb.org/mongo-driver/bson/primitive"
 	"go.mongodb.org/mongo-driver/mongo"
 )
 
@@ -85,6 +88,52 @@ func (s *suiteTester) Test_impl_Create() {
 
 			if err := s.repo.Create(tt.args.ctx, tt.args.book); (err != nil) != tt.wantErr {
 				t.Errorf("Create() error = %v, wantErr %v", err, tt.wantErr)
+			}
+		})
+	}
+}
+
+func (s *suiteTester) Test_impl_GetByName() {
+	book1 := &wordbook{
+		ID:      primitive.NewObjectIDFromTimestamp(time.Now()),
+		Name:    "test_book1",
+		OwnerID: "tester1",
+	}
+
+	type args struct {
+		ctx  contextx.Contextx
+		name string
+		mock func()
+	}
+	tests := []struct {
+		name     string
+		args     args
+		wantItem *agg.Wordbook
+		wantErr  bool
+	}{
+		{
+			name: "ok",
+			args: args{name: book1.Name, mock: func() {
+				_, _ = s.rw.Database(dbName).Collection(collName).InsertOne(contextx.Background(), book1)
+			}},
+			wantItem: book1.ToAgg(),
+			wantErr:  false,
+		},
+	}
+	for _, tt := range tests {
+		s.T().Run(tt.name, func(t *testing.T) {
+			tt.args.ctx = contextx.Background()
+			if tt.args.mock != nil {
+				tt.args.mock()
+			}
+
+			gotItem, err := s.repo.GetByName(tt.args.ctx, tt.args.name)
+			if (err != nil) != tt.wantErr {
+				t.Errorf("GetByName() error = %v, wantErr %v", err, tt.wantErr)
+				return
+			}
+			if !reflect.DeepEqual(gotItem, tt.wantItem) {
+				t.Errorf("GetByName() gotItem = %v, want %v", gotItem, tt.wantItem)
 			}
 		})
 	}

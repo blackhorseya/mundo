@@ -10,8 +10,10 @@ go_library(
     visibility = ["//visibility:public"],
     deps = [
         "//entity/domain/management/agg",
+        "//entity/domain/management/model",
         "//entity/domain/management/repo",
         "//pkg/contextx",
+        "@org_mongodb_go_mongo_driver//bson",
         "@org_mongodb_go_mongo_driver//bson/primitive",
         "@org_mongodb_go_mongo_driver//mongo",
     ],
@@ -28,6 +30,7 @@ go_test(
         "//pkg/contextx",
         "//pkg/storage/mongodbx",
         "@com_github_stretchr_testify//suite",
+        "@org_mongodb_go_mongo_driver//bson/primitive",
         "@org_mongodb_go_mongo_driver//mongo",
     ],
 )
