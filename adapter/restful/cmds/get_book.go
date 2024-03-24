@@ -1,6 +1,9 @@
 package cmds
 
 import (
+	"errors"
+	"strings"
+
 	"github.com/blackhorseya/mundo/entity/domain/identity/agg"
 	"github.com/blackhorseya/mundo/entity/domain/management/biz"
 	"github.com/blackhorseya/mundo/pkg/contextx"
@@ -17,6 +20,29 @@ func (cmd *GetBookByNameCommand) Execute(
 	who *agg.Member,
 	text string,
 ) ([]messaging_api.MessageInterface, error) {
-	// todo: 2024/3/25|sean|implement get book by name command
-	return nil, nil
+	if !strings.HasPrefix(text, "/get_book ") {
+		return nil, nil
+	}
+
+	name := strings.TrimSpace(strings.TrimPrefix(text, "/get_book "))
+	if name == "" {
+		return nil, errors.New("name is required")
+	}
+
+	got, err := cmd.mgmt.GetWordBookByName(ctx, name)
+	if err != nil {
+		return nil, err
+	}
+
+	container, err := got.FlexContainer()
+	if err != nil {
+		return nil, err
+	}
+
+	return []messaging_api.MessageInterface{
+		&messaging_api.FlexMessage{
+			AltText:  "Book " + got.Name,
+			Contents: container,
+		},
+	}, nil
 }
