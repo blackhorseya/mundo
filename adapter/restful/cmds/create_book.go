@@ -16,7 +16,7 @@ type CreateBookCommand struct {
 }
 
 func (cmd *CreateBookCommand) Help(ctx contextx.Contextx) string {
-	return fmt.Sprintf("Usage: %s\tcreate a book\n", "/create {name}")
+	return fmt.Sprintf("Usage: %s\tcreate a book", "/create {name}")
 }
 
 func (cmd *CreateBookCommand) Execute(

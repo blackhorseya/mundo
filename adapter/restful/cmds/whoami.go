@@ -13,7 +13,7 @@ type WhoAmICommand struct {
 }
 
 func (cmd *WhoAmICommand) Help(ctx contextx.Contextx) string {
-	return fmt.Sprintf("Usage: %s\tshow your id\n", "/whoami")
+	return fmt.Sprintf("Usage: %s\tshow your id", "/whoami")
 }
 
 func (cmd *WhoAmICommand) Execute(

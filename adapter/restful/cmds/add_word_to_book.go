@@ -16,7 +16,7 @@ type AddWordToBookCommand struct {
 }
 
 func (cmd *AddWordToBookCommand) Help(ctx contextx.Contextx) string {
-	return fmt.Sprintf("Usage: %s\tadd word to book\n", "/book_{name} add {word}")
+	return fmt.Sprintf("Usage: %s\tadd word to book", "/book_{name} add {word}")
 }
 
 func (cmd *AddWordToBookCommand) Execute(

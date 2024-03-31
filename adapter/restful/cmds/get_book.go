@@ -17,7 +17,7 @@ type GetBookByNameCommand struct {
 }
 
 func (cmd *GetBookByNameCommand) Help(ctx contextx.Contextx) string {
-	return fmt.Sprintf("Usage: %s\tget book by name\n", "/get_book {name}")
+	return fmt.Sprintf("Usage: %s\tget book by name", "/get_book {name}")
 }
 
 func (cmd *GetBookByNameCommand) Execute(

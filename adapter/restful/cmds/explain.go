@@ -18,7 +18,7 @@ type ExplainCommand struct {
 }
 
 func (cmd *ExplainCommand) Help(ctx contextx.Contextx) string {
-	return fmt.Sprintf("Usage: %s\texplain a word\n", "/explain {word}")
+	return fmt.Sprintf("Usage: %s\texplain a word", "/explain {word}")
 }
 
 func (cmd *ExplainCommand) Execute(

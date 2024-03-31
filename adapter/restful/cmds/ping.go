@@ -13,7 +13,7 @@ type PingCommand struct {
 }
 
 func (cmd *PingCommand) Help(ctx contextx.Contextx) string {
-	return fmt.Sprintf("Usage: %s\tping command\n", "/ping")
+	return fmt.Sprintf("Usage: %s\tping command", "/ping")
 }
 
 func (cmd *PingCommand) Execute(

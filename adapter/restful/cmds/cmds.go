@@ -20,6 +20,7 @@ type TextCommander interface {
 // NewCommands is the function to create the text commands.
 func NewCommands(client *openaix.Client, mgmt biz.IManagementBiz) []TextCommander {
 	return []TextCommander{
+		&HelpCommand{},
 		&PingCommand{},
 		&WhoAmICommand{},
 		&ExplainCommand{client: client},
