@@ -36,6 +36,21 @@ func (m *MockIManagementBiz) EXPECT() *MockIManagementBizMockRecorder {
 	return m.recorder
 }
 
+// AddWordToBook mocks base method.
+func (m *MockIManagementBiz) AddWordToBook(ctx contextx.Contextx, by *agg.Member, bookName, word string) (*agg0.Wordbook, error) {
+	m.ctrl.T.Helper()
+	ret := m.ctrl.Call(m, "AddWordToBook", ctx, by, bookName, word)
+	ret0, _ := ret[0].(*agg0.Wordbook)
+	ret1, _ := ret[1].(error)
+	return ret0, ret1
+}
+
+// AddWordToBook indicates an expected call of AddWordToBook.
+func (mr *MockIManagementBizMockRecorder) AddWordToBook(ctx, by, bookName, word interface{}) *gomock.Call {
+	mr.mock.ctrl.T.Helper()
+	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "AddWordToBook", reflect.TypeOf((*MockIManagementBiz)(nil).AddWordToBook), ctx, by, bookName, word)
+}
+
 // CreateWordBook mocks base method.
 func (m *MockIManagementBiz) CreateWordBook(ctx contextx.Contextx, by *agg.Member, name string) (*agg0.Wordbook, error) {
 	m.ctrl.T.Helper()

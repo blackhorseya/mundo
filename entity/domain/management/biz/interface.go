@@ -28,4 +28,7 @@ type IManagementBiz interface {
 
 	// CreateWordBook is used to create a word book.
 	CreateWordBook(ctx contextx.Contextx, by *idA.Member, name string) (item *agg.Wordbook, err error)
+
+	// AddWordToBook is used to add word to book.
+	AddWordToBook(ctx contextx.Contextx, by *idA.Member, bookName string, word string) (item *agg.Wordbook, err error)
 }

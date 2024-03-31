@@ -56,3 +56,13 @@ func (i *impl) CreateWordBook(ctx contextx.Contextx, by *idA.Member, name string
 
 	return ret, nil
 }
+
+func (i *impl) AddWordToBook(
+	ctx contextx.Contextx,
+	by *idA.Member,
+	bookName string,
+	word string,
+) (item *agg.Wordbook, err error) {
+	// todo: 2024/3/31|sean|implement add word to book
+	panic("implement me")
+}
