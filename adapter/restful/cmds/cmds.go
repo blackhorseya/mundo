@@ -12,6 +12,9 @@ import (
 type TextCommander interface {
 	// Execute is the function to execute the command.
 	Execute(ctx contextx.Contextx, who *agg.Member, text string) ([]messaging_api.MessageInterface, error)
+
+	// Help is the function to get the help message.
+	Help(ctx contextx.Contextx) string
 }
 
 // NewCommands is the function to create the text commands.

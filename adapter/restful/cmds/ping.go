@@ -1,6 +1,8 @@
 package cmds
 
 import (
+	"fmt"
+
 	"github.com/blackhorseya/mundo/entity/domain/identity/agg"
 	"github.com/blackhorseya/mundo/pkg/contextx"
 	"github.com/line/line-bot-sdk-go/v8/linebot/messaging_api"
@@ -8,6 +10,10 @@ import (
 
 // PingCommand is the command for ping.
 type PingCommand struct {
+}
+
+func (cmd *PingCommand) Help(ctx contextx.Contextx) string {
+	return fmt.Sprintf("Usage: %s\tping command\n", "/ping")
 }
 
 func (cmd *PingCommand) Execute(

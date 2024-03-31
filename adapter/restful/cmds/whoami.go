@@ -1,6 +1,8 @@
 package cmds
 
 import (
+	"fmt"
+
 	"github.com/blackhorseya/mundo/entity/domain/identity/agg"
 	"github.com/blackhorseya/mundo/pkg/contextx"
 	"github.com/line/line-bot-sdk-go/v8/linebot/messaging_api"
@@ -8,6 +10,10 @@ import (
 
 // WhoAmICommand is the command for whoami.
 type WhoAmICommand struct {
+}
+
+func (cmd *WhoAmICommand) Help(ctx contextx.Contextx) string {
+	return fmt.Sprintf("Usage: %s\tshow your id\n", "/whoami")
 }
 
 func (cmd *WhoAmICommand) Execute(

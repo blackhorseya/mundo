@@ -2,6 +2,7 @@ package cmds
 
 import (
 	"errors"
+	"fmt"
 	"strings"
 
 	"github.com/blackhorseya/mundo/entity/domain/identity/agg"
@@ -14,6 +15,10 @@ import (
 // ExplainCommand is the command for explain.
 type ExplainCommand struct {
 	client *openaix.Client
+}
+
+func (cmd *ExplainCommand) Help(ctx contextx.Contextx) string {
+	return fmt.Sprintf("Usage: %s\texplain a word\n", "/explain {word}")
 }
 
 func (cmd *ExplainCommand) Execute(

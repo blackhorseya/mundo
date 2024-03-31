@@ -2,6 +2,7 @@ package cmds
 
 import (
 	"errors"
+	"fmt"
 	"strings"
 
 	"github.com/blackhorseya/mundo/entity/domain/identity/agg"
@@ -13,6 +14,10 @@ import (
 // GetBookByNameCommand is a command to get book by name.
 type GetBookByNameCommand struct {
 	mgmt biz.IManagementBiz
+}
+
+func (cmd *GetBookByNameCommand) Help(ctx contextx.Contextx) string {
+	return fmt.Sprintf("Usage: %s\tget book by name\n", "/get_book {name}")
 }
 
 func (cmd *GetBookByNameCommand) Execute(

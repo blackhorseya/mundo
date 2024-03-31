@@ -1,6 +1,7 @@
 package cmds
 
 import (
+	"fmt"
 	"strings"
 
 	"github.com/blackhorseya/mundo/entity/domain/identity/agg"
@@ -14,12 +15,15 @@ type AddWordToBookCommand struct {
 	mgmt biz.IManagementBiz
 }
 
+func (cmd *AddWordToBookCommand) Help(ctx contextx.Contextx) string {
+	return fmt.Sprintf("Usage: %s\tadd word to book\n", "/book_{name} add {word}")
+}
+
 func (cmd *AddWordToBookCommand) Execute(
 	ctx contextx.Contextx,
 	who *agg.Member,
 	text string,
 ) ([]messaging_api.MessageInterface, error) {
-	// example command: /book_{name} add {word}
 	if !strings.HasPrefix(text, "/book_") {
 		return nil, nil
 	}

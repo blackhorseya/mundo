@@ -1,6 +1,7 @@
 package cmds
 
 import (
+	"fmt"
 	"strings"
 
 	"github.com/blackhorseya/mundo/entity/domain/identity/agg"
@@ -12,6 +13,10 @@ import (
 // CreateBookCommand is the command for create book.
 type CreateBookCommand struct {
 	mgmt biz.IManagementBiz
+}
+
+func (cmd *CreateBookCommand) Help(ctx contextx.Contextx) string {
+	return fmt.Sprintf("Usage: %s\tcreate a book\n", "/create {name}")
 }
 
 func (cmd *CreateBookCommand) Execute(
