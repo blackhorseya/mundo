@@ -65,3 +65,19 @@ func (mr *MockIManagementBizMockRecorder) GetWordBookByName(ctx, name interface{
 	mr.mock.ctrl.T.Helper()
 	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "GetWordBookByName", reflect.TypeOf((*MockIManagementBiz)(nil).GetWordBookByName), ctx, name)
 }
+
+// ListWordBooks mocks base method.
+func (m *MockIManagementBiz) ListWordBooks(ctx contextx.Contextx, by *agg.Member, opt ListWordBooksOption) ([]*agg0.Wordbook, int, error) {
+	m.ctrl.T.Helper()
+	ret := m.ctrl.Call(m, "ListWordBooks", ctx, by, opt)
+	ret0, _ := ret[0].([]*agg0.Wordbook)
+	ret1, _ := ret[1].(int)
+	ret2, _ := ret[2].(error)
+	return ret0, ret1, ret2
+}
+
+// ListWordBooks indicates an expected call of ListWordBooks.
+func (mr *MockIManagementBizMockRecorder) ListWordBooks(ctx, by, opt interface{}) *gomock.Call {
+	mr.mock.ctrl.T.Helper()
+	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "ListWordBooks", reflect.TypeOf((*MockIManagementBiz)(nil).ListWordBooks), ctx, by, opt)
+}

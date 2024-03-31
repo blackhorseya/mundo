@@ -21,6 +21,25 @@ func NewManagementBiz(wordbooks repo.IWordbookRepo) biz.IManagementBiz {
 	}
 }
 
+func (i *impl) GetWordBookByName(ctx contextx.Contextx, name string) (item *agg.Wordbook, err error) {
+	got, err := i.wordbooks.GetByName(ctx, name)
+	if err != nil {
+		ctx.Error("get a wordbook by name from database failed", zap.Error(err))
+		return nil, err
+	}
+
+	return got, nil
+}
+
+func (i *impl) ListWordBooks(
+	ctx contextx.Contextx,
+	by *idA.Member,
+	opt biz.ListWordBooksOption,
+) (items []*agg.Wordbook, total int, err error) {
+	// todo: 2024/3/31|sean|implement list word books
+	panic("implement me")
+}
+
 func (i *impl) CreateWordBook(ctx contextx.Contextx, by *idA.Member, name string) (item *agg.Wordbook, err error) {
 	ret := &agg.Wordbook{
 		Collection: model.Collection{
@@ -36,14 +55,4 @@ func (i *impl) CreateWordBook(ctx contextx.Contextx, by *idA.Member, name string
 	}
 
 	return ret, nil
-}
-
-func (i *impl) GetWordBookByName(ctx contextx.Contextx, name string) (item *agg.Wordbook, err error) {
-	got, err := i.wordbooks.GetByName(ctx, name)
-	if err != nil {
-		ctx.Error("get a wordbook by name from database failed", zap.Error(err))
-		return nil, err
-	}
-
-	return got, nil
 }
