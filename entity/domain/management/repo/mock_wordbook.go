@@ -35,6 +35,20 @@ func (m *MockIWordbookRepo) EXPECT() *MockIWordbookRepoMockRecorder {
 	return m.recorder
 }
 
+// AddWord mocks base method.
+func (m *MockIWordbookRepo) AddWord(ctx contextx.Contextx, book *agg.Wordbook, word string) error {
+	m.ctrl.T.Helper()
+	ret := m.ctrl.Call(m, "AddWord", ctx, book, word)
+	ret0, _ := ret[0].(error)
+	return ret0
+}
+
+// AddWord indicates an expected call of AddWord.
+func (mr *MockIWordbookRepoMockRecorder) AddWord(ctx, book, word interface{}) *gomock.Call {
+	mr.mock.ctrl.T.Helper()
+	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "AddWord", reflect.TypeOf((*MockIWordbookRepo)(nil).AddWord), ctx, book, word)
+}
+
 // Create mocks base method.
 func (m *MockIWordbookRepo) Create(ctx contextx.Contextx, book *agg.Wordbook) error {
 	m.ctrl.T.Helper()
@@ -62,4 +76,20 @@ func (m *MockIWordbookRepo) GetByName(ctx contextx.Contextx, name string) (*agg.
 func (mr *MockIWordbookRepoMockRecorder) GetByName(ctx, name interface{}) *gomock.Call {
 	mr.mock.ctrl.T.Helper()
 	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "GetByName", reflect.TypeOf((*MockIWordbookRepo)(nil).GetByName), ctx, name)
+}
+
+// List mocks base method.
+func (m *MockIWordbookRepo) List(ctx contextx.Contextx, opts ListOption) ([]*agg.Wordbook, int, error) {
+	m.ctrl.T.Helper()
+	ret := m.ctrl.Call(m, "List", ctx, opts)
+	ret0, _ := ret[0].([]*agg.Wordbook)
+	ret1, _ := ret[1].(int)
+	ret2, _ := ret[2].(error)
+	return ret0, ret1, ret2
+}
+
+// List indicates an expected call of List.
+func (mr *MockIWordbookRepoMockRecorder) List(ctx, opts interface{}) *gomock.Call {
+	mr.mock.ctrl.T.Helper()
+	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "List", reflect.TypeOf((*MockIWordbookRepo)(nil).List), ctx, opts)
 }

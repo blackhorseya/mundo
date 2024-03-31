@@ -54,3 +54,13 @@ func (i *impl) GetByName(ctx contextx.Contextx, name string) (item *agg.Wordbook
 
 	return got.ToAgg(), nil
 }
+
+func (i *impl) List(ctx contextx.Contextx, opts repo.ListOption) (items []*agg.Wordbook, total int, err error) {
+	// todo: 2024/3/31|sean|implement list wordbooks
+	panic("implement me")
+}
+
+func (i *impl) AddWord(ctx contextx.Contextx, book *agg.Wordbook, word string) (err error) {
+	// todo: 2024/3/31|sean|implement add word to wordbook
+	panic("implement me")
+}
